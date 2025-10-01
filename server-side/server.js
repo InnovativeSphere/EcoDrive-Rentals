@@ -7,39 +7,41 @@ import userRoutes from "./routes/userRoutes.js";
 import rentalRoutes from "./routes/rentalRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 
-
 dotenv.config();
-const MONGODB_URI = process.env.MONGODB_URI;
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-// Connect to MongoDB
 mongoose
   .connect(MONGODB_URI)
-  .then(() => console.log("MongoDB Connected!"))
-  .catch((err) => console.log("MongoDB connection error: ", err));
+  .then(() => console.log("✅ MongoDB Connected to Atlas!"))
+  .catch((err) => {
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1);
+  });
 
-// Middleware
+// ✅ Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true,
   })
 );
 app.use(express.json());
 app.use(morgan("dev"));
 
-
+// ✅ Base route
 app.get("/", (req, res) => {
-  res.status(200).send("Welcome to the Car Rental API");
+  res.status(200).send("🚗 Welcome to the Car Rental API");
 });
 
-//Routes
+// ✅ API Routes
 app.use("/api/users", userRoutes);
 app.use("/api/rentals", rentalRoutes);
 app.use("/api/contacts", contactRoutes);
 
-// Start the server
+// ✅ Start server only if not in serverless environment
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

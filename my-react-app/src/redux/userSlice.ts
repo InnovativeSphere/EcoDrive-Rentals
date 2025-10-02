@@ -9,7 +9,7 @@ import type {
 } from "./userTypes";
 import { clearComplaints } from "./complaintSlice";
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://ecodrive-rentals.onrender.com/api/users";
 
 // ------------------ ASYNC THUNKS ------------------ //
 

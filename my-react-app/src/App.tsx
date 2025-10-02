@@ -40,9 +40,6 @@ function App() {
           <Route path="/rental/:id" element={<RentalDetails />} />
           <Route path="/my-complaints" element={<MyComplaints />} />
           <Route path="/complaints/edit/:id" element={<EditComplaint />} />
-
-          
-
         </Routes>
 
         <Footer />

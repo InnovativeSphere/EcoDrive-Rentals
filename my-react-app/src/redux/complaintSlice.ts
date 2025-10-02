@@ -29,7 +29,7 @@ const initialState: ComplaintState = {
 };
 
 // ✅ Base API URL – matches your Express router
-const API_URL = "http://localhost:5000/api/contacts";
+const API_URL = "https://ecodrive-rentals.onrender.com/api/contacts";
 
 // ✅ Centralized auth header helper
 const authHeader = () => {

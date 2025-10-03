@@ -110,7 +110,7 @@ const CheckoutPage: React.FC = () => {
     console.log("Car object:", car);
     console.log("New rental payload:", newRental);
 
-    await axios.post("http://localhost:5000/api/rentals", newRental, {
+    await axios.post("https://ecodrive-rentals.onrender.com/api/rentals", newRental, {
       headers: { Authorization: `Bearer ${user.token}` },
     });
 

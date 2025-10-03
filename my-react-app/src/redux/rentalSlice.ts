@@ -8,6 +8,7 @@ import axios from "axios";
 import type { RootState } from "./store";
 
 const API_URL = "https://ecodrive-rentals.onrender.com/api/rentals";
+
 // =================== TYPES ===================
 export interface Rental {
   _id: string;

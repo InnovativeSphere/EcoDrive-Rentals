@@ -155,7 +155,7 @@ const RentalDetails: React.FC = () => {
     setActionLoading(true);
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/rentals/${rental._id}/cancel`,
+        `https://ecodrive-rentals.onrender.com/api/rentals/${rental._id}/cancel`,
         {},
         { headers: { Authorization: `Bearer ${user.token}` } }
       );

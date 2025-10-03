@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
     const fetchRentals = async () => {
       if (!user?.token) return;
       try {
-        const { data } = await axios.get("http://localhost:5000/api/rentals", {
+        const { data } = await axios.get("https://ecodrive-rentals.onrender.com/api/rentals", {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setRentals(data);

@@ -33,27 +33,29 @@ const RegisterPage: React.FC = () => {
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (currentStep === 2 && (!dob || !phoneNumber || !address || !gender)) {
-      return;
-    }
+  // ✅ Basic validation
+  if (currentStep === 2 && (!dob || !phoneNumber || !address || !gender)) {
+    return;
+  }
 
-    dispatch(
-      registerUser({
-        firstName,
-        lastName,
-        username,
-        email,
-        password,
-        dob,
-        phoneNumber,
-        address,
-        gender,
-      })
-    );
-  };
+  dispatch(
+    registerUser({
+      firstName,
+      lastName,
+      username,
+      email,
+      password,
+      dob,
+      phoneNumber,
+      address,
+      gender: gender as "male" | "female" | "other" | "preferNotToSay",
+    })
+  );
+};
+
 
   // 🔑 Auto-login after successful registration
   useEffect(() => {

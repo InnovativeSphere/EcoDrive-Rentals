@@ -70,7 +70,7 @@ const Dashboard: React.FC = () => {
     <div className="bg-gray-900 text-gray-300 min-h-screen p-8 relative">
       <div className="max-w-6xl mx-auto py-8 px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-12">
-          Welcome Back, <span className="text-red-500">{user.name}</span>
+          Welcome Back, <span className="text-red-500">{user.firstName}</span>
         </h1>
 
         {/* Stats Section */}

@@ -76,6 +76,7 @@ const RentalDetails: React.FC = () => {
       try {
         const { data } = await axios.get<RentalFromApi[]>(
           "https://ecodrive-rentals.onrender.com/api/rentals",
+          
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }
